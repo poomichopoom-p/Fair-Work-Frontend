@@ -1,59 +1,40 @@
-# Frontend
+# FairWork Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.24.
+Angular 21 employee, company, and admin workspace for the FairWork attendance API.
 
-## Development server
+## Included flows
 
-To start a local development server, run:
+- Sign in and invitation-based registration
+- Employee dashboard with location-verified clock in/out and break controls
+- Attendance history, shift detail, event-based location checks, and correction requests
+- Company correction review, weekly attendance report, and team invitations
+- Manager read-only people, attendance, reports, audit, and correction queue
+- Admin employee list, attendance records, weekly reports, audit log, and invitations
+- Role-aware navigation; the API remains responsible for access enforcement
 
-```bash
-ng serve
+Location is requested only when an employee starts a clock in/out action. Coordinates are sent to the backend for validation and are not used for continuous tracking.
+
+## Run locally
+
+Requirements: Node.js 20+ and the FairWork backend running on `http://localhost:8080`.
+
+```powershell
+cd D:\miniProject\fairWork\frontend
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200`. The Angular development server forwards `/api` requests to the backend using `proxy.conf.json`. Start the Spring Boot backend with its local database configuration before signing in.
 
-## Code scaffolding
+## Production build
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```powershell
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The optimized site is written to `dist/frontend`. Production hosting must route `/api` to the FairWork backend over HTTPS.
 
-```bash
-ng generate --help
-```
+## Container deployment
 
-## Building
+The workspace `compose.yaml` builds the API and web containers and keeps PostgreSQL and the API off published host ports. See the [deployment runbook](../docs/ops/deployment-runbook.md) for required secrets, TLS proxy setup, health checks, encrypted backups, and release steps.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

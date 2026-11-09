@@ -1,0 +1,62 @@
+services:
+  - type: web
+    name: fairwork-demo-web-20261109
+    runtime: docker
+    repo: https://github.com/poomichopoom-p/Fair-Work-Frontend.git
+    branch: render-demo
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    region: singapore
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: API_UPSTREAM
+        value: https://fairwork-demo-api-20261109.onrender.com
+
+  - type: web
+    name: fairwork-demo-api-20261109
+    runtime: docker
+    repo: https://github.com/poomichopoom-p/Fair-Work-backend-.git
+    branch: render-demo
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    region: singapore
+    plan: free
+    healthCheckPath: /actuator/health/readiness
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: SERVER_PORT
+        value: "8080"
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
+      - key: DATABASE
+        fromDatabase:
+          name: fairwork-demo-db-20261109
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://fairwork-demo-web-20261109.onrender.com
+      - key: JWT_SECRET
+        sync: false
+      - key: BOOTSTRAP_COMPANY_NAME
+        value: FairWork Demo
+      - key: BOOTSTRAP_ADMIN_NAME
+        value: Demo Admin
+      - key: BOOTSTRAP_ADMIN_EMAIL
+        value: demo-admin@example.invalid
+      - key: BOOTSTRAP_ADMIN_PASSWORD
+        sync: false
+
+databases:
+  - name: fairwork-demo-db-20261109
+    databaseName: fairwork_demo
+    user: fairwork
+    region: singapore
+    plan: free
+    postgresMajorVersion: "16"
+    ipAllowList: []
+

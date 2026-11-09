@@ -1,344 +1,106 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+@if (!user()) {
+  <main class="auth-shell">
+    <section class="auth-story">
+      <a class="brand brand-light" href="/" aria-label="FairWork home"><span class="brand-mark">f</span><span>fairwork</span></a>
+      <div class="story-copy">
+        <div class="eyebrow light-eyebrow"><span class="status-dot"></span> Work, accounted for.</div>
+        <h1>Time deserves<br><em>to be fair.</em></h1>
+        <p>A clear record of every shift, break, and workplace check. Built for people on both sides of the clock.</p>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+      <div class="story-footer"><span>FairWork attendance platform</span><span>Private by design · Verified on site</span></div>
+      <div class="story-orbit orbit-one"></div><div class="story-orbit orbit-two"></div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-mobile-brand"><a class="brand" href="/"><span class="brand-mark">f</span><span>fairwork</span></a></div>
+      <div class="auth-card">
+        <div class="eyebrow">{{ authMode() === 'login' ? 'YOUR WORKSPACE' : 'INVITATION REGISTRATION' }}</div>
+        <h2>{{ authMode() === 'login' ? 'Welcome back' : 'Create your account' }}</h2>
+        <p class="muted">{{ authMode() === 'login' ? 'Sign in to see your day, clearly.' : 'Use the invitation code sent to your email.' }}</p>
+        @if (error()) { <div class="alert alert-error" role="alert">{{ error() }}</div> }
+        <form (ngSubmit)="authMode() === 'login' ? login() : register()" #authForm="ngForm">
+          @if (authMode() === 'register') {
+            <label>Your name<input name="name" [(ngModel)]="registerForm.name" autocomplete="name" required placeholder="e.g. Alex Morgan"></label>
+          }
+          <label>Work email@if (authMode() === 'login') { <input name="email" type="email" [(ngModel)]="loginForm.email" autocomplete="email" required placeholder="you@company.com"> } @else { <input name="email" type="email" [(ngModel)]="registerForm.email" autocomplete="email" required placeholder="you@company.com"> }</label>
+          <label>Password@if (authMode() === 'login') { <input name="password" type="password" [(ngModel)]="loginForm.password" autocomplete="current-password" required placeholder="••••••••••••"> } @else { <input name="password" type="password" [(ngModel)]="registerForm.password" minlength="12" autocomplete="new-password" required placeholder="At least 12 characters"> }</label>
+          @if (authMode() === 'register') {
+            <label>Invitation code<input name="invitationCode" [(ngModel)]="registerForm.invitationCode" minlength="43" maxlength="43" required placeholder="Paste your 43-character code"></label>
+          }
+          <button class="button button-primary button-wide" type="submit" [disabled]="busy() || !authForm.valid">{{ busy() ? 'Please wait…' : authMode() === 'login' ? 'Sign in' : 'Create account' }}<span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="auth-switch">{{ authMode() === 'login' ? 'Joining your team?' : 'Already have an account?' }} <button class="text-button" type="button" (click)="authMode.set(authMode() === 'login' ? 'register' : 'login'); error.set('')">{{ authMode() === 'login' ? 'Register with an invite' : 'Sign in' }}</button></p>
+        <div class="privacy-note"><span class="lock-icon">◈</span><span>Location is checked only when you clock in or out. FairWork does not continuously track employees.</span></div>
       </div>
-    </div>
+      <span class="auth-copyright">© 2026 FairWork · Built for fair working days</span>
+    </section>
+  </main>
+} @else {
+  <div class="workspace">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" (click)="$event.preventDefault(); selectPage('overview')"><span class="brand-mark">f</span><span>fairwork</span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav aria-label="Main navigation">
+        <button class="nav-item" [class.active]="page() === 'overview'" (click)="selectPage('overview')"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-item" [class.active]="page() === 'attendance'" (click)="selectPage('attendance')"><span class="nav-icon">◷</span> Attendance</button>
+        @if (isEmployee()) { <button class="nav-item" [class.active]="page() === 'corrections'" (click)="selectPage('corrections')"><span class="nav-icon">⇄</span> My requests</button> }
+        @if (canViewCompany()) { <div class="nav-divider"></div><div class="workspace-label">{{ canReview() ? 'REVIEW' : 'TEAM' }}</div><button class="nav-item" [class.active]="page() === 'corrections'" (click)="selectPage('corrections')"><span class="nav-icon">◎</span> Corrections@if (corrections().length) { <span class="nav-count">{{ corrections().length }}</span> }</button><button class="nav-item" [class.active]="page() === 'reports'" (click)="selectPage('reports'); loadReports()"><span class="nav-icon">▤</span> Reports</button> }
+        @if (canInvite() || canManageRead()) { <div class="nav-divider"></div><div class="workspace-label">{{ isAdmin() || isManager() ? 'ADMINISTRATION' : 'TEAM' }}</div><button class="nav-item" [class.active]="page() === 'people'" (click)="selectPage('people')"><span class="nav-icon">♙</span> {{ isAdmin() || isManager() ? 'People' : 'Invitations' }}</button> }
+        @if (canViewCompany()) { <button class="nav-item" [class.active]="page() === 'audit'" (click)="selectPage('audit')"><span class="nav-icon">⌁</span> Audit log</button> }
+      </nav>
+      <div class="sidebar-bottom"><div class="privacy-card"><span class="privacy-symbol">✳</span><strong>Privacy first</strong><p>Location checks happen at clock events. Your work stays yours.</p></div><button class="help-link" (click)="selectPage('attendance')"><span>?</span> How attendance works</button><div class="profile-row"><div class="avatar">{{ user()?.name?.charAt(0) }}</div><div class="profile-copy"><strong>{{ user()?.name }}</strong><span>{{ user()?.role?.toLowerCase() }}</span></div><button class="icon-button" type="button" title="Sign out" aria-label="Sign out" (click)="logout()">↗</button></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div class="breadcrumbs"><span>FairWork</span><span class="crumb-separator">/</span><strong>{{ page() === 'overview' ? 'Overview' : page() === 'attendance' ? 'Attendance' : page() === 'corrections' ? 'Corrections' : page() === 'reports' ? 'Reports' : page() === 'people' ? 'People' : 'Audit log' }}</strong></div><div class="topbar-right"><span class="today-date">{{ today | date:'EEEE, d MMM' }}</span><div class="top-avatar">{{ user()?.name?.charAt(0) }}</div></div></header>
+      @if (error()) { <div class="toast toast-error" role="alert"><span>!</span>{{ error() }}<button aria-label="Dismiss" (click)="error.set('')">×</button></div> }
+      @if (notice()) { <div class="toast toast-success" role="status"><span>✓</span>{{ notice() }}<button aria-label="Dismiss" (click)="notice.set('')">×</button></div> }
+
+      @if (page() === 'overview') {
+        <section class="page-content">
+          <div class="page-heading"><div><div class="eyebrow">{{ greeting() | uppercase }}</div><h1>{{ user()?.name?.split(' ')?.[0] }}, here’s your day.</h1><p class="muted">A clear view of your hours, with every moment accounted for.</p></div><div class="date-chip"><span class="calendar-icon">▦</span><span>{{ today | date:'EEEE, d MMMM' }}</span></div></div>
+          @if (isEmployee()) {
+            <div class="hero-grid"><article class="clock-card"><div class="card-topline"><span class="live-dot" [class.paused]="!openAttendance()"></span><span>{{ openAttendance() ? 'YOUR SHIFT IS IN PROGRESS' : 'READY WHEN YOU ARE' }}</span><span class="clock-date">{{ 'now' | date:'h:mm a' }}</span></div><div class="clock-body"><div><h2>{{ openAttendance() ? 'You’re on the clock.' : 'Start your day.' }}</h2><p>{{ openAttendance()?.locationName || 'Your attendance is recorded at your approved workplace.' }}</p></div><div class="clock-face">{{ openAttendance()?.clockIn ? (openAttendance()!.clockIn | date:'h:mm') : '—:—' }}<span>{{ openAttendance() ? 'CLOCKED IN' : 'NOT STARTED' }}</span></div></div><div class="clock-actions"><button class="button button-lime" (click)="clock('clock-in')" [disabled]="busy() || !!openAttendance()">↗ &nbsp; Clock in</button><button class="button button-outline-light" (click)="clock('clock-out')" [disabled]="busy() || !openAttendance()">Clock out <span>↗</span></button></div><div class="location-footnote"><span>⌖</span> Location is checked for this event only · GPS accuracy must be within 200m</div></article><article class="shift-card"><div class="section-kicker">TODAY AT A GLANCE</div><div class="shift-time"><span>{{ openAttendance()?.clockIn ? (openAttendance()!.clockIn | date:'h:mm a') : '—' }}</span><span class="time-line"></span><span>{{ openAttendance()?.clockOut ? (openAttendance()!.clockOut | date:'h:mm a') : 'Now' }}</span></div><div class="shift-labels"><span>Clock in</span><span>{{ openAttendance()?.clockOut ? 'Clock out' : 'Current time' }}</span></div><div class="shift-divider"></div><div class="metric-line"><span>Working time</span><strong>{{ formatMinutes(openAttendance()?.workingMinutes) }}</strong></div><div class="metric-line"><span>Break time</span><strong>{{ formatMinutes(openAttendance()?.breakMinutes) }}</strong></div><div class="break-actions"><button class="button button-small button-dark" (click)="breakAction('start')" [disabled]="busy() || !openAttendance()">Start break</button><button class="button button-small button-quiet" (click)="breakAction('end')" [disabled]="busy() || !openAttendance()">End break</button></div></article></div>
+            <div class="section-heading"><div><div class="eyebrow">YOUR SHIFT</div><h2>Today’s attendance</h2></div><button class="link-button" (click)="selectPage('attendance')">View history <span>→</span></button></div>
+            <div class="table-card"><table><thead><tr><th>WORKPLACE</th><th>DATE</th><th>STARTED</th><th>FINISHED</th><th>WORKED</th><th>STATUS</th></tr></thead><tbody>@for (row of todayRows(); track row.id) { <tr><td><span class="place-dot"></span>{{ row.locationName || 'Approved workplace' }}</td><td>{{ row.clockIn | date:'d MMM yyyy' }}</td><td>{{ row.clockIn | date:'h:mm a' }}</td><td>{{ row.clockOut ? (row.clockOut | date:'h:mm a') : '—' }}</td><td>{{ formatMinutes(row.workingMinutes) }}</td><td><span class="status-pill" [class.status-open]="!row.clockOut">{{ row.clockOut ? 'Complete' : 'In progress' }}</span></td></tr> } @empty { <tr><td colspan="6" class="empty-cell"><span class="empty-icon">◷</span><strong>No shift recorded yet</strong><span>Your shift will appear here when you clock in.</span></td></tr> }</tbody></table></div>
+          } @else if (canViewCompany()) {
+            <div class="welcome-banner"><div><div class="eyebrow light-eyebrow">{{ isAdmin() ? 'SYSTEM OVERVIEW' : 'COMPANY OVERVIEW' }}</div><h2>{{ isAdmin() ? 'A clearer view of every working day.' : 'Your team, in sync.' }}</h2><p>Review attendance, resolve requests, and keep the record fair.</p></div><div class="banner-orbit">✳</div></div>
+            <div class="metric-grid"><article class="metric-card"><span class="metric-label">PENDING CORRECTIONS</span><strong>{{ corrections().length }}</strong><span class="metric-caption">Awaiting review</span><span class="metric-icon amber">⇄</span></article><article class="metric-card"><span class="metric-label">PEOPLE IN WORKSPACE</span><strong>{{ isAdmin() ? employees().length : reports().length }}</strong><span class="metric-caption">{{ isAdmin() ? 'Across all companies' : 'In this reporting period' }}</span><span class="metric-icon blue">♙</span></article><article class="metric-card"><span class="metric-label">HOURS THIS WEEK</span><strong>{{ totalHours() }}</strong><span class="metric-caption">Recorded working time</span><span class="metric-icon green">◷</span></article></div>
+            <div class="section-heading"><div><div class="eyebrow">NEEDS YOUR ATTENTION</div><h2>Recent correction requests</h2></div><button class="link-button" (click)="selectPage('corrections')">Review all <span>→</span></button></div><div class="table-card"><table><thead><tr><th>ATTENDANCE</th><th>REQUESTED CHANGE</th><th>REASON</th><th>SUBMITTED</th><th>STATUS</th></tr></thead><tbody>@for (item of corrections().slice(0, 5); track item.id) { <tr><td>#{{ item.attendanceId }}</td><td>{{ formatValues(item.requestedValues) }}</td><td class="reason-cell">{{ item.reason }}</td><td>{{ item.requestedAt | date:'d MMM, h:mm a' }}</td><td><span class="status-pill status-pending">{{ item.status }}</span></td></tr> } @empty { <tr><td colspan="5" class="empty-cell"><span class="empty-icon">✓</span><strong>All caught up</strong><span>There are no pending requests right now.</span></td></tr> }</tbody></table></div>
+          } @else {
+            <div class="welcome-banner"><div><div class="eyebrow light-eyebrow">READ-ONLY TEAM ACCESS</div><h2>Your workday, clearly recorded.</h2><p>Your role can review attendance records without changing employee time.</p></div><div class="banner-orbit">◷</div></div><div class="table-card"><table><thead><tr><th>WORKPLACE</th><th>DATE</th><th>STARTED</th><th>FINISHED</th><th>WORKED</th><th>STATUS</th></tr></thead><tbody>@for (row of todayRows(); track row.id) { <tr><td><span class="place-dot"></span>{{ row.locationName || 'Approved workplace' }}</td><td>{{ row.clockIn | date:'d MMM yyyy' }}</td><td>{{ row.clockIn | date:'h:mm a' }}</td><td>{{ row.clockOut ? (row.clockOut | date:'h:mm a') : '—' }}</td><td>{{ formatMinutes(row.workingMinutes) }}</td><td><span class="status-pill" [class.status-open]="!row.clockOut">{{ row.clockOut ? 'Complete' : 'In progress' }}</span></td></tr> } @empty { <tr><td colspan="6" class="empty-cell"><span class="empty-icon">◷</span><strong>No shift recorded yet</strong><span>Attendance records available to your role will appear here.</span></td></tr> }</tbody></table></div>
+          }
+        </section>
+      }
+
+      @if (page() === 'attendance') {
+        <section class="page-content"><div class="page-heading"><div><div class="eyebrow">TIME, MADE VISIBLE</div><h1>{{ canManageRead() ? 'Company attendance' : 'Attendance history' }}</h1><p class="muted">{{ canManageRead() ? 'Read-only attendance records for your authorized scope.' : 'Your shifts and recorded working time, all in one place.' }}</p></div>@if (canManageRead()) { <button class="button button-dark" (click)="loadAdminAttendance()">Refresh records ↻</button> }</div><div class="table-card"><table><thead><tr><th>WORKPLACE</th><th>DATE</th><th>STARTED</th><th>FINISHED</th><th>BREAK</th><th>WORKED</th><th>STATUS</th>@if (isEmployee()) { <th></th> }</tr></thead><tbody>@for (row of history(); track row.id) { <tr><td><span class="place-dot"></span>{{ row.locationName || 'Approved workplace' }}</td><td>{{ row.clockIn | date:'d MMM yyyy' }}</td><td>{{ row.clockIn | date:'h:mm a' }}</td><td>{{ row.clockOut ? (row.clockOut | date:'h:mm a') : '—' }}</td><td>{{ formatMinutes(row.breakMinutes) }}</td><td>{{ formatMinutes(row.workingMinutes) }}</td><td><span class="status-pill" [class.status-open]="!row.clockOut">{{ row.clockOut ? 'Complete' : 'Open' }}</span></td>@if (isEmployee()) { <td><button class="text-button" (click)="showAttendanceDetail(row.id)">Details</button><span class="action-separator">·</span><button class="text-button" (click)="correctionForm.attendanceId = '' + row.id; selectPage('corrections')">Request edit</button></td> }</tr> } @empty { <tr><td colspan="8" class="empty-cell"><span class="empty-icon">◷</span><strong>No attendance yet</strong><span>Your completed shifts will show up here.</span></td></tr> }</tbody></table></div></section>
+      }
+
+      @if (page() === 'corrections') {
+        <section class="page-content"><div class="page-heading"><div><div class="eyebrow">{{ canViewCompany() ? 'REVIEW WITH CONTEXT' : 'KEEP THE RECORD RIGHT' }}</div><h1>{{ canViewCompany() ? 'Correction requests' : 'My requests' }}</h1><p class="muted">{{ canReview() ? 'Every change stays tied to a reason and a clear decision.' : isManager() ? 'Review the company queue. Decisions are reserved for Company and Admin roles.' : canViewCompany() ? 'Company-wide requests stay tied to a clear audit trail.' : 'If a shift looks wrong, tell us what happened.' }}</p></div></div>
+          @if (isEmployee()) { <article class="form-card"><div class="form-title"><span class="form-icon">⇄</span><div><h2>Request a correction</h2><p>Requests are reviewed by your company and added to the audit trail.</p></div></div><form class="correction-form" (ngSubmit)="submitCorrection()"><label>Attendance record<select name="attendanceId" [(ngModel)]="correctionForm.attendanceId" required><option value="">Choose a shift</option>@for (row of history(); track row.id) { <option [value]="row.id">{{ row.clockIn | date:'d MMM yyyy, h:mm a' }} · {{ row.locationName || 'Workplace' }}</option> }</select></label><div class="form-row"><label>What needs correcting?<select name="field" [(ngModel)]="correctionForm.field"><option value="clockIn">Clock-in time</option><option value="clockOut">Clock-out time</option></select></label><label>Correct date and time<input name="requestedValue" type="datetime-local" [(ngModel)]="correctionForm.requestedValue" required></label></div><label>What happened?<textarea name="reason" [(ngModel)]="correctionForm.reason" required maxlength="2000" rows="3" placeholder="Add enough context for your reviewer to understand the change."></textarea></label><div class="form-actions"><span>Changes are never made silently.</span><button class="button button-dark" type="submit" [disabled]="busy() || !correctionForm.attendanceId || !correctionForm.requestedValue || !correctionForm.reason">Submit request <span>↗</span></button></div></form></article> }
+          <div class="section-heading"><div><div class="eyebrow">{{ canViewCompany() ? 'IN THE QUEUE' : 'YOUR HISTORY' }}</div><h2>{{ canViewCompany() ? 'Pending review' : 'Submitted requests' }}</h2></div></div><div class="request-list">@for (item of corrections(); track item.id) { <article class="request-card"><div class="request-top"><span class="request-id">REQUEST #{{ item.id }} <i>·</i> SHIFT #{{ item.attendanceId }}</span><span class="status-pill" [class.status-pending]="item.status === 'PENDING'">{{ item.status }}</span></div><div class="request-details"><div><span class="detail-label">REQUESTED CHANGE</span><strong>{{ formatValues(item.requestedValues) }}</strong></div><div><span class="detail-label">SUBMITTED</span><strong>{{ item.requestedAt | date:'d MMM yyyy, h:mm a' }}</strong></div></div><p class="request-reason">“{{ item.reason }}”</p>@if (canReview() && item.status === 'PENDING') { <div class="review-actions"><input [ngModel]="reviewInput()" (ngModelChange)="reviewInput.set($event)" placeholder="Add a review note before deciding" aria-label="Review note"><button class="button button-small button-outline" (click)="reviewCorrection(item, 'reject')">Decline</button><button class="button button-small button-dark" (click)="reviewCorrection(item, 'approve')">Approve</button></div> }</article> } @empty { <div class="empty-state"><span class="empty-icon">✓</span><strong>{{ canViewCompany() ? 'No requests waiting' : 'No requests yet' }}</strong><span>{{ canViewCompany() ? 'New submissions will appear here for review.' : 'Your correction requests will appear here.' }}</span></div> }</div>
+        </section>
+      }
+
+      @if (page() === 'reports') {
+        <section class="page-content"><div class="page-heading"><div><div class="eyebrow">{{ reportFrom() }} — {{ reportTo() }}</div><h1>Attendance report</h1><p class="muted">A weekly view of scheduled time, attendance, and exceptions.</p></div></div><form class="report-filters" (ngSubmit)="loadReports()"><label>From<input name="reportFrom" type="date" [ngModel]="reportFrom()" (ngModelChange)="reportFrom.set($event)" required></label><label>To<input name="reportTo" type="date" [ngModel]="reportTo()" (ngModelChange)="reportTo.set($event)" required></label>@if (isAdmin()) { <label>Company ID<input name="reportCompanyId" type="number" min="1" [ngModel]="reportCompanyId()" (ngModelChange)="reportCompanyId.set($event)" placeholder="All companies"></label> }<label>Employee ID<input name="reportUserId" type="number" min="1" [ngModel]="reportUserId()" (ngModelChange)="reportUserId.set($event)" placeholder="All employees"></label><div class="report-filter-actions"><button class="button button-dark" type="submit" [disabled]="busy()">Apply filters</button><button class="button button-outline" type="button" (click)="exportReport()" [disabled]="busy()">Download CSV ↓</button></div></form><div class="report-note"><span>✳</span><p>Hours reflect backend-verified attendance. Overtime is not shown because its business rules are still being defined.</p></div><div class="table-card"><table><thead><tr><th>EMPLOYEE</th><th>SHIFTS</th><th>ATTENDED</th><th>LATE</th><th>ABSENT</th><th>WORKED</th><th>BREAKS</th></tr></thead><tbody>@for (row of reports(); track row.userId) { <tr><td><div class="person-cell"><div class="avatar avatar-small">{{ row.name.charAt(0) }}</div><strong>{{ row.name }}</strong></div></td><td>{{ row.scheduledShifts }}</td><td>{{ row.attendedShifts }}</td><td>{{ row.lateShifts }}</td><td>{{ row.absentShifts }}</td><td>{{ formatMinutes(row.totalWorkingMinutes) }}</td><td>{{ formatMinutes(row.totalBreakMinutes) }}</td></tr> } @empty { <tr><td colspan="7" class="empty-cell"><span class="empty-icon">▤</span><strong>No report data for this range</strong><span>Scheduled shifts will appear when available.</span></td></tr> }</tbody></table></div></section>
+      }
+
+      @if (page() === 'people') {
+        <section class="page-content"><div class="page-heading"><div><div class="eyebrow">ACCESS & MEMBERSHIP</div><h1>{{ isAdmin() || isManager() ? 'People' : 'Invite your team' }}</h1><p class="muted">{{ isAdmin() || isManager() ? 'Accounts and roles in your company scope.' : 'Give teammates secure, one-time access to your company workspace.' }}</p></div>@if (canManageRead()) { <button class="button button-dark" (click)="refreshPeople()">Refresh people ↻</button> }</div>
+          @if (canInvite()) { <article class="form-card"><div class="form-title"><span class="form-icon">＋</span><div><h2>Create an invitation</h2><p>The invitation code can be used once and expires after 48 hours.</p></div></div><form class="correction-form" (ngSubmit)="createInvitation()"><div class="form-row"><label>Work email<input name="inviteEmail" type="email" [(ngModel)]="invitationForm.email" required placeholder="teammate@company.com"></label><label>Role<select name="inviteRole" [(ngModel)]="invitationForm.role"><option value="EMPLOYEE">Employee</option><option value="MANAGER">Manager</option>@if (isAdmin()) { <option value="COMPANY">Company</option> }</select></label></div>@if (isAdmin()) { <label>Company ID<input name="companyId" type="number" min="1" [(ngModel)]="invitationForm.companyId" placeholder="Leave blank for the default company"></label> }<div class="form-actions"><span>Share the code securely with the invited person.</span><button class="button button-dark" type="submit" [disabled]="busy() || !invitationForm.email">Create invitation <span>↗</span></button></div></form>@if (invitationCode()) { <div class="invitation-result"><span class="detail-label">ONE-TIME INVITATION CODE</span><code>{{ invitationCode() }}</code><span>Copy this code into the registration form. It will only work once.</span></div> }</article> }
+          @if (canManageRead()) { <div class="table-card"><table><thead><tr><th>PERSON</th><th>EMAIL</th><th>ROLE</th><th>COMPANY</th><th>JOINED</th></tr></thead><tbody>@for (person of employees(); track person.id) { <tr><td><div class="person-cell"><div class="avatar avatar-small">{{ person.name.charAt(0) }}</div><strong>{{ person.name }}</strong></div></td><td>{{ person.email }}</td><td><span class="role-pill">{{ person.role }}</span></td><td>{{ person.companyId ?? '—' }}</td><td>{{ person.createdAt | date:'d MMM yyyy' }}</td></tr> } @empty { <tr><td colspan="5" class="empty-cell"><span class="empty-icon">♙</span><strong>No people found</strong><span>Employee accounts will appear here.</span></td></tr> }</tbody></table></div> }
+        </section>
+      }
+
+      @if (page() === 'audit') {
+        <section class="page-content"><div class="page-heading"><div><div class="eyebrow">A RECORD OF EVERY DECISION</div><h1>Audit log</h1><p class="muted">Important changes stay visible, attributable, and reviewable.</p></div><button class="button button-dark" (click)="refreshAudit()">Refresh log ↻</button></div><div class="table-card"><table><thead><tr><th>WHEN</th><th>ACTOR</th><th>ACTION</th><th>RECORD</th><th>REASON</th></tr></thead><tbody>@for (entry of audit(); track entry.id) { <tr><td>{{ entry.createdAt | date:'d MMM yyyy, h:mm a' }}</td><td>#{{ entry.actorId }}</td><td><span class="audit-action">{{ entry.action }}</span></td><td>{{ entry.entityType }} #{{ entry.entityId }}</td><td class="reason-cell">{{ entry.reason || '—' }}</td></tr> } @empty { <tr><td colspan="5" class="empty-cell"><span class="empty-icon">⌁</span><strong>No audit events yet</strong><span>Important review actions will be recorded here.</span></td></tr> }</tbody></table></div></section>
+      }
+      @if (attendanceDetail(); as detail) {
+        <div class="modal-backdrop" (click)="closeAttendanceDetail()" (keydown.escape)="closeAttendanceDetail()"><section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" (click)="$event.stopPropagation()"><div class="modal-heading"><div><div class="eyebrow">ATTENDANCE RECORD #{{ detail.attendance.id }}</div><h2 id="detail-title">Shift details</h2></div><button class="icon-button modal-close" aria-label="Close details" (click)="closeAttendanceDetail()">×</button></div><div class="detail-summary"><div><span class="detail-label">CLOCKED IN</span><strong>{{ detail.attendance.clockIn | date:'d MMM yyyy, h:mm a' }}</strong></div><div><span class="detail-label">CLOCKED OUT</span><strong>{{ detail.attendance.clockOut ? (detail.attendance.clockOut | date:'d MMM yyyy, h:mm a') : 'Still open' }}</strong></div><div><span class="detail-label">WORKPLACE</span><strong>{{ detail.attendance.locationName || 'Approved workplace' }}</strong></div><div><span class="detail-label">WORKING TIME</span><strong>{{ formatMinutes(detail.attendance.workingMinutes) }}</strong></div></div><h3>Breaks</h3><div class="event-list">@for (item of detail.breaks; track item.id) { <div class="event-row"><span class="event-mark break-mark">Ⅱ</span><div><strong>{{ item.breakStart | date:'h:mm a' }} – {{ item.breakEnd ? (item.breakEnd | date:'h:mm a') : 'In progress' }}</strong><span>{{ formatMinutes(item.durationMinutes) }}</span></div></div> } @empty { <p class="detail-empty">No breaks recorded for this shift.</p> }</div><h3>Location checks</h3><p class="privacy-caption">This record shows only the location checks attached to attendance events.</p><div class="event-list">@for (event of detail.locationEvents; track event.id) { <div class="event-row"><span class="event-mark">⌖</span><div><strong>{{ event.eventType.replaceAll('_', ' ') }}</strong><span>{{ event.recordedAt | date:'d MMM, h:mm a' }} · {{ event.status }}@if (event.accuracyMeters != null) { · accuracy {{ event.accuracyMeters | number:'1.0-0' }}m }@if (event.distanceFromWorkplaceMeters != null) { · {{ event.distanceFromWorkplaceMeters | number:'1.0-0' }}m from workplace }</span></div></div> } @empty { <p class="detail-empty">No location events were returned for this shift.</p> }</div></section></div>
+      }
+      <footer class="page-footer"><span>FairWork · Make working time transparent and fair.</span><span>Location checks are event-based and privacy-aware.</span></footer>
+    </main>
   </div>
-</main>
+}
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
